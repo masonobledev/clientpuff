@@ -4,10 +4,15 @@ import { Form, Input, Button } from 'antd';
 
 
 type State = {
-    username: string;
-    password: string;
+    username: string,
+    password: string,
     signup: true,
     errorText: string,
+};
+
+type LoginReq = {
+    username: string,
+    password: string,
 };
 
 interface LoginProps {
@@ -64,15 +69,15 @@ export default class Login extends Component<LoginProps, State> {
         }
     };
 
-    handleUsername = (e) => {
+    handleUsername = (e: LoginReq) => {
         this.setState({
-            username: e.target.value
+            username: e.username
         })
     }
 
-    handlePassword = (e) => {
+    handlePassword = (e: LoginReq) => {
         this.setState({
-            password: e.target.value
+            password: e.password
         })
     } 
 
@@ -105,7 +110,7 @@ export default class Login extends Component<LoginProps, State> {
         
                 <Form.Item>
                     <Button type="primary" htmlType="submit">
-                        Log in
+                        Login
                     </Button>
                 </Form.Item>
             </Form>
