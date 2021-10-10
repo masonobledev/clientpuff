@@ -22,7 +22,7 @@ export default class Signup extends Component <SignupProps, SignupState> {
     }
 
     handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
-		e.preventDefault();
+		// e.preventDefault();
 
 		const reqBody = {
             email: this.state.username,
@@ -47,6 +47,7 @@ export default class Signup extends Component <SignupProps, SignupState> {
                 console.log(json.Message);
                 this.props.updateToken(json.sessionToken);
 				this.props.updateUserRole(json.userRole);
+                /** */
             }
 		} catch (e) {
             console.log(e);

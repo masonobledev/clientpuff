@@ -32,16 +32,18 @@ export default class Login extends Component<LoginProps, State> {
         };
     }
 
-    handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
-        e.preventDefault();
-
+    handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        // e.preventDefault();
+        console.log('hit handleSubmit')
+        console.log(this.state.username)
+        
         const reqBody = {
-            email: this.state.username,
+            username: this.state.username,
             password: this.state.password,
         }
 
         try {
-            const res = await fetch(APIURL, {
+            const res = await fetch(`${APIURL}/user/login`, {
                 method: "POST",
                 body: JSON.stringify(reqBody),
                 headers: {

@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import Auth from './auth/Auth';
 import { Header } from './components/Header';
+import NewCigar from './cigars/NewCigar';
+// import { Nav } from 'react-bootstrap';
+// import { AnyRecord } from 'dns';
 
 interface stateType {
-  sessionToken: string;
-  userRole: string;
+  sessionToken: any;
+  userRole: any;
 };
 
 export default class AppPuff extends Component <{}, stateType> {
@@ -42,6 +45,7 @@ export default class AppPuff extends Component <{}, stateType> {
 		console.log(this.state.sessionToken);
 	};
 
+	
     clearToken = () => {
 		localStorage.clear();
 		this.setState({ sessionToken: '' });
@@ -50,16 +54,17 @@ export default class AppPuff extends Component <{}, stateType> {
   protectedViews = () => {
 		return this.state.sessionToken === localStorage.getItem('token') ? (
 			<div>
-				{/* <Router> */}
-					<Navbar clearToken={this.clearToken} />
+				<Router>
+					{/* <Navbar clearToken={this.clearToken} /> */}
 					<Header brand="The Pufferator" />
-				{/* </Router> */}
-                    <Auth token={this.state.sessionToken} />
-				{/* <CigarIndex token={this.state.sessionToken} /> */}
+				</Router>
+                    {/* <Auth token={this.state.sessionToken} /> */}
+				<NewCigar token={this.state.sessionToken} />
 			</div>
 		) : (
 			<Auth updateToken={this.updateToken} updateUserRole={this.updateUserRole} />
 		);
+		
 	};
   
   render () {

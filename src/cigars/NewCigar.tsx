@@ -8,14 +8,13 @@ type state = {
     shape: string,
     wrapper: string,
     origin: string,
-    rating: number,
 };
 
 type props = {
 	token: string;
-	getProducts: () => void;
-	createOn: () => void;
-	createOff: () => void;
+	// getProducts: () => void;
+	// createOn: () => void;
+	// createOff: () => void;
 };
 
 export default class NewCigar extends Component<props, state> {
@@ -27,15 +26,14 @@ export default class NewCigar extends Component<props, state> {
             shape: '',
             wrapper: '',
             origin: '',
-            rating: '',
 		};
 	}
 
     handleCancel = () => {
-		this.props.createOff();
+		// this.props.createOff();
 	};
 
-    handleSubmit = async (e) => {
+    handleSubmit = async (e: any) => {
         e.preventDefault();
         const APIURL = `http://localhost:3000`;
 
@@ -48,7 +46,6 @@ export default class NewCigar extends Component<props, state> {
                     shape: this.state.shape,
                     wrapper: this.state.wrapper,
                     origin: this.state.origin,
-                    rating: this.state.rating,
 				}
 			}),
 			headers: new Headers({
@@ -59,8 +56,6 @@ export default class NewCigar extends Component<props, state> {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				this.props.createOff();
-				this.props.getProducts();
 
 				this.setState({ brand: '' });
 
@@ -71,8 +66,6 @@ export default class NewCigar extends Component<props, state> {
 				this.setState({ wrapper: '' });
 
 				this.setState({ origin: '' });
-
-				this.setState({ rating: 0 });
 			});
 	};
 
@@ -131,7 +124,7 @@ export default class NewCigar extends Component<props, state> {
 							onChange={(e) => this.setState({ origin: e.target.value })}
 						/>
 					</Form.Item>
-					<Form.Item>
+					{/* <Form.Item>
 						<Input
 							type="text"
 							placeholder="rating"
@@ -139,7 +132,7 @@ export default class NewCigar extends Component<props, state> {
 							name="rating"
 							onChange={(e) => this.setState({ rating: e.target.value })}
 						/>
-					</Form.Item>
+					</Form.Item> */}
 				</Form>
 			</Modal>
 		);

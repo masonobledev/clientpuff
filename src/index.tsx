@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 // import App from './App';
-import AppPuff from './AppPuff';
+// import AppPuff from './AppPuff';
 import reportWebVitals from './reportWebVitals';
+import { AppRouter } from './Router';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppPuff />
+    <AppRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );
