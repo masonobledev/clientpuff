@@ -25,8 +25,10 @@ export default class Signup extends Component <SignupProps, SignupState> {
 		// e.preventDefault();
 
 		const reqBody = {
-            email: this.state.username,
+            user: {
+            username: this.state.username,
             password: this.state.password,
+            }
         }
 
 		try {
@@ -44,8 +46,8 @@ export default class Signup extends Component <SignupProps, SignupState> {
                 let errMsg = json.errors[0].message
 				console.log(errMsg)
             } else {
-                console.log(json.Message);
-                this.props.updateToken(json.sessionToken);
+                console.log(json);
+                this.props.updateToken(json.confirmToken);
 				this.props.updateUserRole(json.userRole);
                 /** */
             }

@@ -71,17 +71,17 @@ export default class Login extends Component<LoginProps, State> {
         }
     };
 
-    handleUsername = (e: LoginReq) => {
-        this.setState({
-            username: e.username
-        })
-    }
+    // handleUsername = (e: LoginReq) => {
+    //     this.setState({
+    //         username: e.username
+    //     })
+    // }
 
-    handlePassword = (e: LoginReq) => {
-        this.setState({
-            password: e.password
-        })
-    } 
+    // handlePassword = (e: LoginReq) => {
+    //     this.setState({
+    //         password: e.password
+    //     })
+    // } 
 
     // componentDidMount(){
     //     this.props.setIsClass(Boolean(Auth?.prototype?.render))

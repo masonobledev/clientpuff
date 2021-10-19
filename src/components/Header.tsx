@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { IndexLinkContainer } from "react-router-bootstrap";
 import { Link } from 'react-router-dom';
+// import Contact from '../features/Contact';
 // import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 // import './css/styles.css';
 
@@ -22,17 +23,20 @@ export class Header extends React.Component <HeaderProps, {}> {
                     <Navbar.Brand>
                         <Link to="/">The Pufferator</Link>
                     </Navbar.Brand>
+                    {/* <Resources />
+                    <Contact /> */}
                 {/* </Navbar.Header> */}
                 <Nav>
-                    <IndexLinkContainer to="/FirstComponent">
-                        <NavItem>Page 1</NavItem>
+                    <IndexLinkContainer to="/Resources">
+                        <NavItem>Resources</NavItem>
                     </IndexLinkContainer>
-                    <IndexLinkContainer to="/FirstComponent">
-                        <NavItem>Page 2</NavItem>
+                    <IndexLinkContainer to="/Contact">
+                        <NavItem>Contact Us</NavItem>
                     </IndexLinkContainer>
                 </Nav>
             </Navbar>
         );
     }
 }
+            
 

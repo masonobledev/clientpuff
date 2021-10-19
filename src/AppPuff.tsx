@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Auth from './auth/Auth';
 import { Header } from './components/Header';
 import NewCigar from './cigars/NewCigar';
+import HomePage from './home/HomePage';
 // import { Nav } from 'react-bootstrap';
 // import { AnyRecord } from 'dns';
 
@@ -59,7 +60,8 @@ export default class AppPuff extends Component <{}, stateType> {
 					<Header brand="The Pufferator" />
 				</Router>
                     {/* <Auth token={this.state.sessionToken} /> */}
-				<NewCigar token={this.state.sessionToken} />
+				{/* <NewCigar token={this.state.sessionToken} /> */}
+				<HomePage />
 			</div>
 		) : (
 			<Auth updateToken={this.updateToken} updateUserRole={this.updateUserRole} />

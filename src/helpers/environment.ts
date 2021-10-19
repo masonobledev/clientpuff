@@ -9,6 +9,6 @@ switch (window.location.hostname) {
  case 'ptc-the-pufferator-clientpuff.herokuapp.com':
      //this is the full url of your deployed API
      APIURL = 'https://ptc-the-pufferator.herokuapp.com/'
-}
+};
 
 export default APIURL;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Modal } from 'antd';
+import { Form, Input, Modal } from 'antd';
 import APIURL from '../helpers/environment';
 
 type state = {
@@ -34,8 +34,8 @@ export default class NewCigar extends Component<props, state> {
 	};
 
     handleSubmit = async (e: any) => {
-        e.preventDefault();
-        const APIURL = `http://localhost:3000`;
+        // e.preventDefault();
+        // const APIURL = `http://localhost:3000`;
 
         fetch(`${APIURL}/cigar/create`, {
 			method: 'POST',
@@ -52,8 +52,13 @@ export default class NewCigar extends Component<props, state> {
 				'Content-Type': 'application/json',
 				Authorization: this.props.token
 			})
+			
 		})
-			.then((response) => response.json())
+			.then((response) => {
+				console.log(response.body)
+				response.json()
+			})
+
 			.then((data) => {
 				console.log(data);
 
@@ -72,10 +77,10 @@ export default class NewCigar extends Component<props, state> {
 	render() {
 		return (
 			<Modal
-				title="Basic Modal"
+				title="What'd you smoke?"
 				visible={true}
 				onOk={this.handleSubmit}
-				okText="Add Product"
+				okText="Submit"
 				onCancel={this.handleCancel}
 			>
 				<Form>

@@ -11,7 +11,8 @@ export const AppRouter: React.FunctionComponent<{}> = () => {
 
         <BrowserRouter>
         <div>
-            <Header brand='The Pufferator' />
+
+            <Header brand='PUFFERATE!' />
             <main>
                 <Route exact={true} path="/" component={AppPuff} />
                 {/* <Route path="/FirstComponent" component={FirstComponent} />

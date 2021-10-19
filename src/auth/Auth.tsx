@@ -53,7 +53,7 @@ export default class Auth extends Component < LoginProps, UserState > {
 							this.loginToggle(e);
 						}}
 					>
-						{this.state.showLogin ? 'Login' : 'Register'}
+						{this.state.showLogin ? 'Login' : 'Signup  '}
 					</Button>
 				</Card>
 				<br />
