@@ -1,7 +1,7 @@
 import React from 'react';
 import { CarouselProps } from 'react-bootstrap';
 
-export class Carousel extends React.Component <{}, {}> {
+export class Carousel extends React.Component /*<{}, {}>*/ {
     render (){
         return (
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

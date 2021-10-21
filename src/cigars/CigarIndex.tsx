@@ -3,11 +3,14 @@ import NewCigar from './NewCigar';
 import Rating from '../rating/Rating';
 
 export default class CigarIndex extends React.Component <{}, {}> {
-    render (){
+    render () {
         return (
-
-            <NewCigar />
-            <Rating />
+            <span>
+                <NewCigar />
+                <Rating />
+            </span>
         )
     };
 }
+
+           
