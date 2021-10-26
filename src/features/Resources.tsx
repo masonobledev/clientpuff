@@ -9,8 +9,10 @@ export class Resources extends React.Component <{}, {}> {
                 Wanna know where you can buy your favorite premium cigars?
                 </p>
                 <ul>
-                    <li><img src='www.cigarsinternational.com' target='_blank'>Cigars International</img></li>
-                    <li><img src='www.cigarbid.com' target='_blank'>CigarBid</img></li>
+                    {/* <li><a href='https://www.cigarsinternational.com/account/login/?returnUrl=%2f' target='_blank'>Cigars International</a></li> */}
+                    {/* <li><a href='https://www.cigarbid.com/account/login/?returnUrl=%252f' target='_blank'>CigarBid</a></li> */}
+                    <li>test three</li>
+                    <li>test four</li>
                 </ul>
                 </section>
                 <section>
@@ -18,9 +20,9 @@ export class Resources extends React.Component <{}, {}> {
                     Don't know cigar etiquette? Take a look at the following 
                 </p>
                 </section>
-
             </span>
-
         )
     };
 }
+
+

@@ -1,79 +1,81 @@
-import React, { Component } from 'react';
-import './App.css';
-import 'antd/dist/antd.css';
-import { BrowserRouter as Router } from 'react-router-dom';
-// import Navbar from './components/Navbar';
-import Auth from './auth/Auth';
-import { Header } from './components/Header';
-import NewCigar from './cigars/NewCigar';
-import HomePage from './home/HomePage';
-// import { Nav } from 'react-bootstrap';
-// import { AnyRecord } from 'dns';
+import React, { Component } from "react";
+import "./App.css";
+import "antd/dist/antd.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import Auth from "./auth/Auth";
+import { HeaderPuff } from "./components/HeaderPuff";
+import HomePage from "./home/HomePage";
+import { Footer } from "./components/Footer";
+
 
 interface stateType {
   sessionToken: any;
   userRole: any;
-};
+}
 
-export default class AppPuff extends Component <{}, stateType> {
+export default class AppPuff extends Component<{}, stateType> {
   constructor(props: "") {
     super(props);
     this.state = {
-      sessionToken: '',
-      userRole: ''
+      sessionToken: "",
+      userRole: "",
     };
   }
 
   componentDidMount() {
-    if (localStorage.getItem('token')) {
-			this.setState({ sessionToken: localStorage.getItem('token') });
-		}
+    if (localStorage.getItem("token")) {
+      this.setState({ sessionToken: localStorage.getItem("token") });
+    }
 
-		if (localStorage.getItem('userRole')) {
-			this.setState({ userRole: localStorage.getItem('userRole') });
-		}
+    if (localStorage.getItem("userRole")) {
+      this.setState({ userRole: localStorage.getItem("userRole") });
+    }
   }
 
   updateUserRole = (newUserRole: string) => {
-		      localStorage.setItem('userRole', newUserRole);
-		      this.setState({ userRole: newUserRole });
-		      console.log(this.state.userRole);
-	};
+    localStorage.setItem("userRole", newUserRole);
+    this.setState({ userRole: newUserRole });
+    console.log(this.state.userRole);
+  };
 
   updateToken = (newToken: string) => {
-		localStorage.setItem('token', newToken);
-		this.setState({ sessionToken: newToken });
-		console.log(this.state.sessionToken);
-	};
+    localStorage.setItem("token", newToken);
+    this.setState({ sessionToken: newToken });
+    console.log(this.state.sessionToken);
+  };
 
-	
-    clearToken = () => {
-		localStorage.clear();
-		this.setState({ sessionToken: '' });
-	};
+  clearToken = () => {
+    localStorage.clear();
+    this.setState({ sessionToken: "" });
+  };
 
   protectedViews = () => {
-		return this.state.sessionToken === localStorage.getItem('token') ? (
-			<div>
-				<Router>
-					{/* <Navbar clearToken={this.clearToken} /> */}
-					<Header brand="The Pufferator" />
-				</Router>
-                    {/* <Auth token={this.state.sessionToken} /> */}
-				{/* <NewCigar token={this.state.sessionToken} /> */}
-				<HomePage />
-			</div>
-		) : (
-			<Auth updateToken={this.updateToken} updateUserRole={this.updateUserRole} />
-		);
-		
-	};
-  
-  render () {
+    return this.state.sessionToken ? (
+      <div>
+        {/* <Navbar clearToken={this.clearToken} /> */}
+        {/* <Header brand="The Pufferator" /> */}
+        {/* <Auth token={this.state.sessionToken} /> */}
+        {/* <NewCigar token={this.state.sessionToken} /> */}
+        <HomePage token={this.state.sessionToken}/>
+      </div>
+    ) : (
+      <Auth
+        updateToken={this.updateToken}
+        updateUserRole={this.updateUserRole}
+      />
+    );
+  };
+
+  render() {
     return (
-      <div className="App">
-            {this.protectedViews()}
+      <div>
+      <HeaderPuff brand='' />
+      <Router>
+        <div className="App">{this.protectedViews()}</div>
+      </Router>
+      <Footer />
       </div>
     );
   }
 }
+

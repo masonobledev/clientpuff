@@ -12,10 +12,9 @@ type state = {
 
 type props = {
 	token: string;
-	// getProducts: () => void;
-	// createOn: () => void;
-	// createOff: () => void;
+	closeCreate(): void;
 };
+
 
 export default class NewCigar extends Component<props, state> {
 	constructor(props: props) {
@@ -56,22 +55,13 @@ export default class NewCigar extends Component<props, state> {
 		})
 			.then((response) => {
 				console.log(response.body)
-				response.json()
+				return response.json()
 			})
 
 			.then((data) => {
-				console.log(data);
-
-				this.setState({ brand: '' });
-
-				this.setState({ profile: '' });
-
-				this.setState({ shape: '' });
-
-				this.setState({ wrapper: '' });
-
-				this.setState({ origin: '' });
-			});
+				console.log(data)
+			})
+			.then(() => {this.props.closeCreate()});
 	};
 
 	render() {
@@ -81,7 +71,7 @@ export default class NewCigar extends Component<props, state> {
 				visible={true}
 				onOk={this.handleSubmit}
 				okText="Submit"
-				onCancel={this.handleCancel}
+				onCancel={this.props.closeCreate}
 			>
 				<Form>
 					<Form.Item>
