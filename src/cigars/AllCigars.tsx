@@ -2,69 +2,51 @@ import React, { Component } from 'react';
 import { Card } from 'antd';
 import APIURL from '../helpers/environment';
 
-type AllState = {
-    brand: string,
-    profile: string,
-    shape: string,
-    wrapper: string,
-    origin: string,
-};
-
 type AllProps = {
 	token: string;
-	closeCreate(): void;
 };
 
-export default class AllCigars extends Component<AllProps, AllState> {
+export default class AllCigars extends Component<AllProps, any> {
     constructor(props: AllProps) {
         super(props);
         this.state = {
-            brand: '',
-            profile: '',
-            shape: '',
-            wrapper: '',
-            origin: '',
+            cigars: []
         };
     }
 
-    handleSubmit = async (e: any) => {
+    componentDidMount() {
 
         fetch(`${APIURL}/cigar/`, {
             method: 'GET',
-            body: JSON.stringify({
-                product: {
-                    brand: this.state.brand,
-                    profile: this.state.profile,
-                    shape: this.state.shape,
-                    wrapper: this.state.wrapper,
-                    origin: this.state.origin,
-				}
-            }),
             headers: ({
                 Authorization: this.props.token
             })
-
         })
-            .then((response) => {
-                console.log(response.body)
-                return response.json()
-            })
-
-            .then((data) => {
-                console.log(data)
-            })
+        .then((response) => response.json())
+        .then(cigarsList => {
+            this.setState({cigars: cigarsList.data});
+            console.log('this.state.cigars');
+            console.log(this.state.cigars);
+        });
     };
-    
+
     render () {
         return (
-            <Card>
-                <p>Card content</p>
-                <p>Card content</p>
-                <p>Card content</p>
-            </Card>
+            <div>
+             
+            {this.state.cigars.map((cigar: any) =>
+               <Card  title={cigar.brand} size = 'default' bordered = {true} style={{ width: 400 }}>
+                <p><b>Origin:</b> {cigar.origin}</p>
+                <p><b>Profile:</b> {cigar.profile}</p>
+                <br />
+              </Card>
+            )}
+            </div>
         );
     }
 };
+    
+    
     
 
 

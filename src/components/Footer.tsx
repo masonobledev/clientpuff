@@ -12,7 +12,7 @@ export class Footer extends React.Component <{}, {}> {
             <Box 
                 px={{ xs: 3, sm: 10 }}
                 py={{ xs: 5, sm: 10 }}
-                bgcolor="text.secondary" 
+                bgcolor="brown" 
                 color="white">
                 <Container maxWidth="lg">
                     <Grid container spacing={5}>

@@ -6,6 +6,8 @@ import Auth from "./auth/Auth";
 import { HeaderPuff } from "./components/HeaderPuff";
 import HomePage from "./home/HomePage";
 import { Footer } from "./components/Footer";
+import AllCigars from "./cigars/AllCigars";
+
 
 
 interface stateType {

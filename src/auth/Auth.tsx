@@ -37,7 +37,7 @@ export default class Auth extends Component < LoginProps, UserState > {
     render(){  /*added 'render' and wrap*/
         return (
             <div className="auth">
-				<Card style={{ width: 300 }}>
+				<Card style={{ width: 300, marginTop: 16, marginBottom: 16 }} >
 					{this.state.showLogin ? (
 						<div>
 							<Signup updateToken={this.props.updateToken} updateUserRole={this.props.updateUserRole} />

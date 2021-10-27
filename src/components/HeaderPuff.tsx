@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { AppBar, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import makeStyle from '@material-ui/core';
+import "./Header.css";
 // import { Open Sans, Work Sans } from '@material-ui/core';
 
 type HeaderProps = {
@@ -9,7 +10,7 @@ type HeaderProps = {
 
 const useStyles = makeStyles(() => ({
     header: {
-        backgroundColor: '#ff9a00',
+        // backgroundColor: '#ff9a00',
         height: '80px',
         position: 'relative',
     },
@@ -37,8 +38,8 @@ export class HeaderPuff extends React.Component <HeaderProps, {}> {
     public render () {
         return (
             <header>
-                <AppBar>
-                    <Toolbar>The Pufferator!</Toolbar>
+                <AppBar className="header">
+                    <Toolbar className="header">The Pufferator!</Toolbar>
                 </AppBar>
             </header>
         );

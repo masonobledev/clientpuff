@@ -7,6 +7,8 @@ import Box from '@material-ui/core/Box';
 import Welcome from './Welcome';
 import QuickLinks from './QuickLinks';
 import CigarIndex from '../cigars/CigarIndex';
+import AllCigars from "../cigars/AllCigars";
+
 
 type HomeProps = {
     token: string
@@ -27,6 +29,10 @@ export default class HomePage extends React.Component <HomeProps, {}> {
                     <hr />
                     <Box>
                     <CigarIndex token={this.props.token} />
+                    </Box>
+                    <hr />
+                    <Box>
+                    <AllCigars token={this.props.token} />
                     </Box>
                     <hr />
                     <Box>
